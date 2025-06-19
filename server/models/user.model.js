@@ -25,6 +25,11 @@ const userSchema=new mongoose.Schema({
         unique: true,
     },
 
+    userPassword:{
+        type: String,
+        required: true,
+    },
+
     lastSyncedAt:{
         type: Date,
         default: null,
