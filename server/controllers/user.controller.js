@@ -1,6 +1,8 @@
 const User= require("../models/user.model.js")
 const bcrypt= require("bcryptjs");
 const {generateJWT}= require("../middlewares/generateJWT.js");
+const {handleRatings,handleContestHistory,handleProblemSolvingData}= require("../utils/codeforces/codeforcesAPI.js")
+const Codeforces= require("../models/codeforces.model.js")
 
 
 const handleSignUp= async (req,res)=>{
@@ -16,7 +18,7 @@ const handleSignUp= async (req,res)=>{
         const existingUser= await User.findOne({userEmail:userEmail});
         if(existingUser){
             return res.status(400).json({
-                message:"College already exists with this email",
+                message:"user already exists with this email",
             });
         }
 
@@ -33,12 +35,26 @@ const handleSignUp= async (req,res)=>{
 
         const token= generateJWT(newUser);
 
+        const {currentRating,maxRating}=await handleRatings(codeforcesHandle);
+        const contestHistory=await handleContestHistory(codeforcesHandle);
+        const problemSolved=await handleProblemSolvingData(codeforcesHandle);
+    
+        const cfData=await Codeforces.create({
+            user: newUser._id,
+            currentRating,
+            maxRating,
+            contestHistory,
+            problemSolved,
+            lastSyncedAt: new Date(),
+        });
+
         return res.status(201).json({
             message: "User Registered",
             userId: newUser._id,
             userName,
             userEmail,
             codeforcesHandle,
+            codeforcesId: cfData._id,
             leetcodeHandle,
             token,
         });
