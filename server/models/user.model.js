@@ -19,12 +19,6 @@ const userSchema=new mongoose.Schema({
         unique: true,
     },
 
-    leetcodeHandle:{
-        type: String,
-        required: true,
-        unique: true,
-    },
-
     userPassword:{
         type: String,
         required: true,

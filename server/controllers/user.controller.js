@@ -1,7 +1,7 @@
 const User= require("../models/user.model.js")
 const bcrypt= require("bcryptjs");
 const {generateJWT}= require("../middlewares/generateJWT.js");
-const {handleRatings,handleContestHistory,handleProblemSolvingData}= require("../utils/codeforces/codeforcesAPI.js")
+const {handleRatings,handleContestHistory,handleProblemSolvingData}= require("../utils/codeforcesAPI.js")
 const Codeforces= require("../models/codeforces.model.js")
 
 
@@ -38,6 +38,8 @@ const handleSignUp= async (req,res)=>{
         const {currentRating,maxRating}=await handleRatings(codeforcesHandle);
         const contestHistory=await handleContestHistory(codeforcesHandle);
         const problemSolved=await handleProblemSolvingData(codeforcesHandle);
+        const leetcodeProfile=await handleLeetcodeProblems(leetcodeHandle);
+        console.log(leetcodeProfile);
     
         const cfData=await Codeforces.create({
             user: newUser._id,
