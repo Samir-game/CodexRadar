@@ -82,6 +82,11 @@ const codeforcesSchema = new mongoose.Schema({
         ref: "User",
     },
 
+    codeForcesHandle:{
+        type: String,
+        required: true,
+    },
+
     currentRating:{
         type: Number,
         default: 0,

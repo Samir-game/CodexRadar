@@ -2,7 +2,8 @@ const axios= require("axios");
 
 const handleRatings=async(cfHandle)=>{
   try {
-    const response=await axios.get(`https://codeforces.com/api/user.info?handles=${cfHandle}`);
+
+    const response=await axios.get(`${process.env.CODEFORCES_INFO_API}?handles=${cfHandle}`);
 
     if(response.status !== 200){
       return {
@@ -33,12 +34,12 @@ const handleContestHistory= async(cfHandle)=>{
     const period= Date.now() - 90*24*60*60*1000;
 
     try {
-        const response_contest= await axios.get(`https://codeforces.com/api/user.rating?handle=${cfHandle}`);
+        const response_contest= await axios.get(`${process.env.CODEFORCES_RATING_API}?handle=${cfHandle}`);
         const allContest= response_contest?.data?.result || [];
         
         const filteredContest= allContest.filter(ac=> ac.ratingUpdateTimeSeconds * 1000 >= period);
         
-        const response_submission= await axios.get(`https://codeforces.com/api/user.status?handle=${cfHandle}`);
+        const response_submission= await axios.get(`${process.env.CODEFORCES_STATUS_API}?handle=${cfHandle}`);
         const allSubmissions= response_submission?.data?.result || [];
         
         const contestData= [];
@@ -104,7 +105,7 @@ const handleProblemSolvingData= async(cfHandle)=>{
     const period= Date.now() - 90*24*60*60*1000;
 
     try {
-        const response_submissions= await axios.get(`https://codeforces.com/api/user.status?handle=${cfHandle}`);
+        const response_submissions= await axios.get(`${process.env.CODEFORCES_STATUS_API}?handle=${cfHandle}`);
         const allSubmissions= response_submissions?.data?.result || [];
 
         const filteredSubmissions= allSubmissions.filter(sub=> sub.creationTimeSeconds*1000 >= period);

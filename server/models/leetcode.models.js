@@ -77,6 +77,11 @@ const leetcodeSchema= new mongoose.Schema({
         unique: true,
     },
 
+    leetcodeHandle:{
+        type: String,
+        required: true,
+    },
+
     problemSolved:{
         type: leetcodeProblemSchema,
         required: true,

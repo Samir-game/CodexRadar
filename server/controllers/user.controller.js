@@ -41,6 +41,7 @@ const handleSignUp= async (req,res)=>{
     
         const cfData=await Codeforces.create({
             user: newUser._id,
+            codeForcesHandle: codeforcesHandle,
             currentRating,
             maxRating,
             contestHistory,
