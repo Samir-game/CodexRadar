@@ -24,11 +24,6 @@ const userSchema=new mongoose.Schema({
         required: true,
     },
 
-    lastSyncedAt:{
-        type: Date,
-        default: null,
-    }
-
 },{timestamps:true});
 
 module.exports = mongoose.model("User", userSchema);

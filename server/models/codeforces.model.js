@@ -106,7 +106,12 @@ const codeforcesSchema = new mongoose.Schema({
         },
         contestData: [contestDataSchema],
         ratingGraph: [ratingGraphSchema],
-  }
+    },
+
+    lastSyncedAt:{
+        type: Date,
+        default: null,
+    }
 
 },{timestamps:true});
 

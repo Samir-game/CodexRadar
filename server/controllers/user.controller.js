@@ -6,9 +6,9 @@ const Codeforces= require("../models/codeforces.model.js")
 
 
 const handleSignUp= async (req,res)=>{
-    const {userName,userEmail,codeforcesHandle,leetcodeHandle,userPassword}= req.body;
+    const {userName,userEmail,codeforcesHandle,userPassword}= req.body;
 
-    if(!userName || !userEmail || !codeforcesHandle || !leetcodeHandle || !userPassword){
+    if(!userName || !userEmail || !codeforcesHandle || !userPassword){
         return res.status(400).json({
             message:"Fill all credentials",
         });
@@ -29,7 +29,6 @@ const handleSignUp= async (req,res)=>{
             userName,
             userEmail,
             codeforcesHandle,
-            leetcodeHandle,
             userPassword:hashedPassword,
         });
 
@@ -38,8 +37,6 @@ const handleSignUp= async (req,res)=>{
         const {currentRating,maxRating}=await handleRatings(codeforcesHandle);
         const contestHistory=await handleContestHistory(codeforcesHandle);
         const problemSolved=await handleProblemSolvingData(codeforcesHandle);
-        const leetcodeProfile=await handleLeetcodeProblems(leetcodeHandle);
-        console.log(leetcodeProfile);
     
         const cfData=await Codeforces.create({
             user: newUser._id,
@@ -58,7 +55,6 @@ const handleSignUp= async (req,res)=>{
             userEmail,
             codeforcesHandle,
             codeforcesId: cfData._id,
-            leetcodeHandle,
             token,
         });
 
@@ -99,9 +95,9 @@ const handleLogin= async(req,res)=>{
         return res.status(200).json({
             msg: "Login successful",
             userId: user._id,
+            userName: user.userName,
             userEmail: user.userEmail,
             codeforcesHandle: user.codeforcesHandle,
-            leetcodeHandle: user.leetcodeHandle,
             token,
         });
 
