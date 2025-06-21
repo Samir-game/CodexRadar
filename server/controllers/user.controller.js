@@ -33,6 +33,11 @@ const handleSignUp= async (req,res)=>{
         });
 
         const token= generateJWT(newUser);
+        res.cookie("token",token,{
+            httpOnly: true, 
+            sameSite: "Strict", 
+            maxAge: 2*24*60*60*1000
+        });
 
         const {currentRating,maxRating}=await handleRatings(codeforcesHandle);
         const contestHistory=await handleContestHistory(codeforcesHandle);
@@ -55,7 +60,6 @@ const handleSignUp= async (req,res)=>{
             userEmail,
             codeforcesHandle,
             codeforcesId: cfData._id,
-            token,
         });
 
     } catch (error) {
@@ -91,6 +95,11 @@ const handleLogin= async(req,res)=>{
         }
 
         const token= generateJWT(user);
+        res.cookie("token",token,{
+            httpOnly: true,              
+            sameSite: "Strict", 
+            maxAge: 2*24*60*60*1000
+        });
 
         return res.status(200).json({
             msg: "Login successful",
@@ -98,7 +107,6 @@ const handleLogin= async(req,res)=>{
             userName: user.userName,
             userEmail: user.userEmail,
             codeforcesHandle: user.codeforcesHandle,
-            token,
         });
 
     } catch (error) {
