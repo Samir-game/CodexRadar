@@ -3,6 +3,8 @@ const {connectionDB}= require("./database/db.js");
 const app= require("./app.js");
 const {updateUserCodeForces}= require("./cron/updateUserCodeForces.js")
 const cron= require('node-cron')
+const startAgenda = require("./utils/notifications/agenda.js");
+
 
 
 dotenv.config({
@@ -25,8 +27,13 @@ connectionDB()
     app.listen(PORT,()=>{
         console.log("SERVER started at PORT: ",PORT)
     })
+
     cron.schedule("0 2 * * *", updationTask);
     console.log("Cron job scheduled: Codeforces data will be updated every day at 2 AM.");
+
+    startAgenda() 
+    .then(() => console.log("Agenda started: Contest reminders scheduled every 30 mins."))
+    .catch((error) => console.error("Agenda start failed:", error.message));
 
 })
 .catch((error)=>{
