@@ -1,8 +1,8 @@
-const axios = require("axios");
+const axios= require("axios");
 
-const getUpcomingContests = async () => {
+const getUpcomingContests=async()=>{
   try {
-    const response=await axios.get(`${CODEFORCES_CONTEST_LIST}`);
+    const response=await axios.get(`${process.env.CODEFORCES_CONTEST_LIST}`);
     const contests=response?.data?.result;
 
     const now=Date.now();
@@ -18,4 +18,6 @@ const getUpcomingContests = async () => {
   }
 };
 
-module.exports=getUpcomingContests;
+module.exports={
+  getUpcomingContests
+};

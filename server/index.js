@@ -32,7 +32,8 @@ connectionDB()
     console.log("Cron job scheduled: Codeforces data will be updated every day at 2 AM.");
 
     startAgenda() 
-    .then(() => console.log("Agenda started: Contest reminders scheduled every 30 mins."))
+    .then(() => 
+        console.log("Agenda started: Contest reminders every 30 mins, inactivity reminders daily at 10 AM."))
     .catch((error) => console.error("Agenda start failed:", error.message));
 
 })
