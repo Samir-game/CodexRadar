@@ -1,0 +1,123 @@
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(145deg, #e7f0fd, #f4f7fb);
+  margin: 0;
+  padding: 0;
+  color: #1f2937;
+}
+
+.signup-container {
+  max-width: 450px;
+  margin: 50px auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 35px 30px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  border-top: 6px solid #005cc5;
+  transition: transform 0.2s ease-in-out;
+}
+
+.signup-container:hover {
+  transform: translateY(-3px);
+}
+
+.signup-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: #003c80;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.signup-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #ffcc00;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.signup-form .form-group {
+  margin-bottom: 20px;
+}
+
+.signup-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.form-input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.8px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 15px;
+  outline: none;
+  background-color: #f9fafb;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-input:focus {
+  border-color: #005cc5;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(0, 92, 197, 0.15);
+}
+
+.error-text {
+  color: #e11d48;
+  font-size: 13px;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to right, #005cc5, #004899);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 92, 197, 0.3);
+}
+
+.submit-button:hover {
+  background: linear-gradient(to right, #004899, #003c80);
+  box-shadow: 0 6px 14px rgba(0, 76, 160, 0.4);
+  transform: translateY(-1px);
+}
+
+.submit-button:disabled {
+  background: #cbd5e1;
+  color: #64748b;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.login-link {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #374151;
+}
+
+.login-link-anchor {
+  color: #005cc5;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 4px;
+  transition: color 0.2s;
+}
+
+.login-link-anchor:hover {
+  color: #003c80;
+  text-decoration: underline;
+}

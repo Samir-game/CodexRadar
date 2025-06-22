@@ -3,7 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
-import './SignUp.css'; 
+import "./SignUp.css"
 
 const SignUp = () => {
   const {
@@ -38,7 +38,7 @@ const SignUp = () => {
 
   return (
     <div className="signup-container">
-      <h2 className="signup-title">Create Your CODExRadar Account</h2>
+      <h2 className="signup-title">Create Your CodexRadar Account</h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="signup-form">
 

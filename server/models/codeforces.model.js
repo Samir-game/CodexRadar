@@ -97,6 +97,20 @@ const codeforcesSchema = new mongoose.Schema({
         default: 0,
     },
 
+    maxRank:{
+        type: String,
+    },
+
+    currentRank:{
+        type: String,
+        default: 0,
+    },
+
+    titlePhoto:{
+        type: String,
+        
+    },
+
     problemSolved: problemSchema,
 
     contestHistory:{

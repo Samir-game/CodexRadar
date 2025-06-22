@@ -4,7 +4,7 @@ const User= require("../models/user.model.js");
 const auth= async (req,res,next)=>{
     try {
         const token=req.cookies.token;
-
+      
         if (!token){
             return res.status(401).json({ 
                 message: "No token. Please login." 
@@ -12,8 +12,8 @@ const auth= async (req,res,next)=>{
         }
         
         const decoded= jwt.verify(token,process.env.JWT_TOKEN_SECRET);
-
-        const user= await User.findById(decoded._id);
+    
+        const user= await User.findById(decoded.userId);
         if(!user){
             return res.status(404).json({
                 message: "user not found, invalid token"

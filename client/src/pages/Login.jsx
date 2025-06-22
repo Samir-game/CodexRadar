@@ -2,8 +2,8 @@ import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import './Login.css';
+import { useNavigate, Link } from "react-router-dom";
+import "./Login.css";
 
 const Login = () => {
   const {
@@ -15,9 +15,9 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const onSubmit = async(data) => {
+  const onSubmit = async (data) => {
     try {
-      const response = await axios.post(import.meta.env.VITE_LOGIN_API, data,{
+      const response = await axios.post(import.meta.env.VITE_LOGIN_API, data, {
         withCredentials: true,
       });
 
@@ -38,6 +38,7 @@ const Login = () => {
   return (
     <div className="login-container">
       <h2 className="login-title">Welcome Back!</h2>
+
       <form onSubmit={handleSubmit(onSubmit)} className="login-form">
         <div className="form-group">
           <label htmlFor="userEmail" className="form-label">Email:</label>
@@ -64,7 +65,13 @@ const Login = () => {
         <button type="submit" disabled={isSubmitting} className="login-button">
           {isSubmitting ? "Logging in..." : "Login"}
         </button>
+
+        <p className="signup-link">
+          Don't have an account?{" "}
+          <Link to="/signup" className="signup-link-anchor">Sign Up</Link>
+        </p>
       </form>
+
       <ToastContainer />
     </div>
   );

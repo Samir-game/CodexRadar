@@ -39,7 +39,7 @@ const handleSignUp= async (req,res)=>{
             maxAge: 2*24*60*60*1000
         });
 
-        const {currentRating,maxRating}=await handleRatings(codeforcesHandle);
+        const {titlePhoto,currentRank,maxRank,currentRating,maxRating}=await handleRatings(codeforcesHandle);
         const contestHistory=await handleContestHistory(codeforcesHandle);
         const problemSolved=await handleProblemSolvingData(codeforcesHandle);
     
@@ -48,6 +48,9 @@ const handleSignUp= async (req,res)=>{
             codeForcesHandle: codeforcesHandle,
             currentRating,
             maxRating,
+            maxRank,
+            currentRank,
+            titlePhoto,
             contestHistory,
             problemSolved,
             lastSyncedAt: new Date(),

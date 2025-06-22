@@ -15,17 +15,27 @@ const handleRatings=async(cfHandle)=>{
         const user=response.data.result[0];
         const currentRating=user.rating || 0;
         const maxRating=user.maxRating || 0;
+        const maxRank=user.maxRank || "NA";
+        const currentRank=user.rank || "NA";
+        const titlePhoto=user.titlePhoto || "https://userpic.codeforces.org/no-title.jpg";
+
 
         return{
             currentRating,
-            maxRating
+            maxRating,
+            maxRank,
+            currentRank,
+            titlePhoto
         };
 
     } catch (error) {
         console.log("Error fetching user rating:", error.message);
         return{
             currentRating: 0,
-            maxRating: 0
+            maxRating: 0,
+            maxRank: "NA",
+            currentRank: "NA",
+            titlePhoto: "https://userpic.codeforces.org/no-title.jpg"
         };
     }
 };
