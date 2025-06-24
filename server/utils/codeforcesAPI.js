@@ -114,15 +114,15 @@ const handleProblemSolvingData=async(cfHandle)=>{
         const allSubmissions=response_submissions?.data?.result || [];
 
         const solvedSubmissions=allSubmissions.filter(fsub=>fsub.verdict === "OK");
-
         let highestRatingSolved = 0;
 
         solvedSubmissions.forEach(fs=>{
-            if(fs.rating && fs.rating > highestRatingSolved){
-                highestRatingSolved=fs.rating;
+            const rating = fs.problem.rating;
+            if(rating && rating > highestRatingSolved){
+                highestRatingSolved=rating;
             }
         });
-
+        
         const uniqueSolvedProblems={};
 
         solvedSubmissions.forEach(ssub=>{
@@ -154,7 +154,7 @@ const handleProblemSolvingData=async(cfHandle)=>{
             }
         });
 
-        const averageRating=ratedCount > 0? (sumRating/ratedCount).toFixed(2):"0";
+        const averageRating=ratedCount > 0? (sumRating/ratedCount).toFixed(2):0;
 
         const solvedPerday={};
         solvedSubmissions.forEach(ss => {

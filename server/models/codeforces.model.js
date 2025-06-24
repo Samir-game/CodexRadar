@@ -56,14 +56,14 @@ const problemSchema=new mongoose.Schema({
         default: 0,
     },
 
-    higestRatingSolved:{
+    highestRatingSolved:{
         type: Number,
         default: 0,
     },
 
     averageRating:{
-        type: String,
-        default: '0',
+        type: Number,
+        default: 0,
     },
 
     ratingBucket:{

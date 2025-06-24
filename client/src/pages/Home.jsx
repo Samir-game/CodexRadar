@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import ContestChart from "../components/ContestChart";
-import ProblemSolvingChart from "../components/ProblemSolvingChart";
-import "./Home.css"
+import ContestTable from "../components/ContestTable.jsx";
+import RatingGraph from "../components/RatingGraph.jsx";
+import SolvedPerDayChart from "../components/SolvedPerDayChart.jsx";
+import RatingBucketChart from "../components/RatingBucketChart.jsx";
+import "./Home.css";
 
 const Home = () => {
   const [userInfo, setUserInfo] = useState(null);
@@ -12,7 +14,7 @@ const Home = () => {
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_HOME_API}`, {
+        const response = await axios.get(import.meta.env.VITE_HOME_API, {
           withCredentials: true,
         });
         setUserInfo(response.data);
@@ -75,31 +77,69 @@ const Home = () => {
           <p className="label">Max Rank</p>
           <p className="value">{maxRank}</p>
         </div>
+        <div className="stat-card">
+          <p className="label">Total Solved</p>
+          <p className="value">{problemSolved.totalSolved}</p>
+        </div>
+        <div className="stat-card">
+          <p className="label">Avg Rating Solved</p>
+          <p className="value">{problemSolved.averageRating}</p>
+        </div>
+        <div className="stat-card">
+          <p className="label">Highest Rating Solved</p>
+          <p className="value">{problemSolved.highestRatingSolved}</p>
+        </div>
       </div>
 
-      <div className="checkbox-section">
-        <label>
+      <div className="toggle-section">
+        <label className="toggle-label">
           <input
             type="checkbox"
             checked={showContest}
-            onChange={() => setShowContest(!showContest)}
+            onChange={() => {
+              setShowContest(!showContest);
+              if (showProblems && !showContest) setShowProblems(false); 
+            }}
           />
           Show Contest History
         </label>
 
-        <label>
-          <input
-            type="checkbox"
-            checked={showProblems}
-            onChange={() => setShowProblems(!showProblems)}
-          />
-          Show Problem Solving History
-        </label>
+        {!showContest && (
+          <label className="toggle-label">
+            <input
+              type="checkbox"
+              checked={showProblems}
+              onChange={() => setShowProblems(!showProblems)}
+            />
+            Show Problem Solving History
+          </label>
+        )}
       </div>
 
       <div className="chart-section">
-        {showContest && <ContestChart data={contestHistory} />}
-        {showProblems && <ProblemSolvingChart data={problemSolved} />}
+        {showContest && (
+          <>
+            <ContestTable data={contestHistory.contestData} />
+            <RatingGraph data={contestHistory.ratingGraph} />
+            <div className="toggle-section-bottom">
+              <label className="toggle-label">
+                <input
+                  type="checkbox"
+                  checked={showProblems}
+                  onChange={() => setShowProblems(!showProblems)}
+                />
+                Show Problem Solving History
+              </label>
+            </div>
+          </>
+        )}
+
+        {showProblems && (
+          <>
+            <SolvedPerDayChart data={problemSolved.solvedPerday} />
+            <RatingBucketChart data={problemSolved.ratingBucket} />
+          </>
+        )}
       </div>
     </div>
   );

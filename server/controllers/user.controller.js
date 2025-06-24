@@ -120,7 +120,44 @@ const handleLogin= async(req,res)=>{
     }
 };
 
+const handleLogout= async(req,res)=>{
+    res.clearCookie("token", {
+        httpOnly: true,
+        sameSite: "Strict",
+    });
+
+    return res.status(200).json({
+        message:"User logout Successfully"
+    });
+};
+
+const handleDeleteUser= async(req,res)=>{
+    const userId=req.user._id;
+    try {
+        await User.findByIdAndDelete(userId);
+        await Codeforces.findByIdAndDelete({user:userId});
+
+        res.clearCookie("token", {
+            httpOnly: true,
+            sameSite: "Strict",
+        });
+
+        return res.status(200).json({
+            message:"User deleted successfully"
+        });
+
+    } catch (error) {
+        console.log("Error deleting User",error.message);
+        return res.status(500).json({
+            message:"Internal Server Error"
+        });
+    }
+}
+
+
 module.exports={
     handleSignUp,
     handleLogin,
+    handleLogout,
+    handleDeleteUser
 };

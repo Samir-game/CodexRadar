@@ -1,4 +1,4 @@
-const {handleLogin,handleSignUp}= require("../controllers/user.controller.js")
+const {handleLogin,handleSignUp,handleDeleteUser,handleLogout}= require("../controllers/user.controller.js")
 const {auth}= require("../middlewares/auth.middleware.js")
 const {getUserInfo}= require("../controllers/getUserInfo.js")
 const express= require("express")
@@ -15,5 +15,14 @@ router
 router
 .route("/home")
 .get(auth,getUserInfo)
+
+router
+.route("/delete")
+.delete(auth,handleDeleteUser)
+
+router
+.route("/logout")
+.post(auth,handleLogout);
+
 
 module.exports= router;
