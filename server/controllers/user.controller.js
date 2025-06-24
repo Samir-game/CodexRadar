@@ -133,26 +133,34 @@ const handleLogout= async(req,res)=>{
 
 const handleDeleteUser= async(req,res)=>{
     const userId=req.user._id;
+
     try {
-        await User.findByIdAndDelete(userId);
-        await Codeforces.findByIdAndDelete({user:userId});
+    
+        const deletedUser=await User.findByIdAndDelete(userId);
 
-        res.clearCookie("token", {
-            httpOnly: true,
-            sameSite: "Strict",
-        });
+        if(deletedUser){
+            await Codeforces.findOneAndDelete({user:userId});
+            res.clearCookie("token",{
+                httpOnly: true,
+                sameSite: "Strict",
+            });
 
-        return res.status(200).json({
-            message:"User deleted successfully"
-        });
+            return res.status(200).json({
+                message: "User data deleted successfully",
+            });
+        } else{
+            return res.status(404).json({
+                message: "User not found or already deleted",
+            });
+        }
 
     } catch (error) {
-        console.log("Error deleting User",error.message);
+        console.log("Error deleting User:", error.message);
         return res.status(500).json({
-            message:"Internal Server Error"
+        message: "Internal Server Error",
         });
     }
-}
+};
 
 
 module.exports={

@@ -24,7 +24,6 @@ const RatingGraph = ({ data }) => {
 
   return (
     <div className="rating-graph-container">
-      <h3>Rating Over Time</h3>
       <ResponsiveContainer width="100%" height={300}>
         <LineChart data={formattedData}>
           <CartesianGrid strokeDasharray="3 3" />

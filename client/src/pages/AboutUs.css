@@ -1,0 +1,115 @@
+.about-container {
+  margin-top: 80px; /* <- Add this line */
+  padding-top: 80px; /* Equal or more than navbar height */
+  min-height: 100vh; /* So content fills full height */
+  box-sizing: border-box;
+  max-width: 1000px;
+  margin: 100px auto 40px; /* Top spacing for fixed navbar */
+  background-color: #ffffff;
+  padding: 40px 35px;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.5s ease-in-out;
+  line-height: 1.8;
+  color: #1f2937;
+}
+
+.about-container h1 {
+  font-size: 32px;
+  color: #003c80;
+  font-weight: 700;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.about-container h2 {
+  font-size: 24px;
+  color: #005cc5;
+  margin-top: 36px;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.about-container p {
+  font-size: 17px;
+  color: #374151;
+  margin-bottom: 20px;
+}
+
+.about-container ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+.about-container ul li {
+  background-color: #f3f4f6;
+  margin-bottom: 12px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #1f2937;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.04);
+}
+
+.made-by {
+  align-content: center;
+  text-align: center;
+  color: #003c80;
+  font-weight: bold;       /* Makes it bold */
+  font-size: 1.5rem;       /* Makes it bigger (you can increase as needed) */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Optional: modern strong font */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-container {
+    padding: 30px 20px;
+    border-radius: 16px;
+    margin: 90px 16px 40px;
+  }
+
+  .about-container h1 {
+    font-size: 24px;
+  }
+
+  .about-container h2 {
+    font-size: 20px;
+  }
+
+  .about-container p,
+  .about-container ul li {
+    font-size: 14.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-container {
+    padding: 24px 16px;
+    margin: 90px 10px 40px;
+  }
+
+  .about-container h1 {
+    font-size: 20px;
+  }
+
+  .about-container h2 {
+    font-size: 18px;
+  }
+
+  .about-container p,
+  .about-container ul li {
+    font-size: 13.5px;
+  }
+}

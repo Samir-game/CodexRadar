@@ -1,0 +1,83 @@
+.contact-container {
+  margin-top: 80px; /* <- Add this line */
+  padding-top: 80px; /* Equal or more than navbar height */
+  min-height: 50vh; /* So content fills full height */
+  box-sizing: border-box;
+  max-width: 800px;
+  margin: 100px auto 40px; /* Top margin for fixed navbar */
+  background-color: #ffffff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  animation: fadeIn 0.4s ease-in-out;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+.contact-container h2 {
+  font-size: 28px;
+  color: #003c80;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.contact-details {
+  font-size: 16px;
+}
+
+.contact-details p {
+  margin: 10px 0;
+  color: #374151;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 28px 20px;
+    border-radius: 12px;
+    margin: 90px 16px 40px;
+  }
+
+  .contact-container h2 {
+    font-size: 22px;
+  }
+
+  .contact-details {
+    font-size: 14.5px;
+  }
+
+  .contact-details p {
+    margin: 8px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 24px 14px;
+    margin: 90px 10px 40px;
+  }
+
+  .contact-container h2 {
+    font-size: 20px;
+  }
+
+  .contact-details {
+    font-size: 13.5px;
+  }
+
+  .contact-details p {
+    margin: 6px 0;
+  }
+}

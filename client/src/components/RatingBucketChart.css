@@ -1,40 +1,31 @@
-.bucket-chart-container {
-  margin-top: 40px;
-  background-color: #ffffff;
-  padding: 25px 30px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  max-width: 1000px;
+.graph-card-container {
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 30px 40px;
+  background-color: #f3f4f6;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
 }
 
-.bucket-chart-container h3 {
-  font-size: 22px;
-  font-weight: 700;
-  color: #003c80;
+.graph-card-title {
+  font-size: 24px;
   margin-bottom: 20px;
   text-align: center;
-  position: relative;
+  color: #003c80;
 }
 
-.bucket-chart-container h3::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 3px;
-  background-color: #ffcc00;
-  margin: 8px auto 0;
-  border-radius: 2px;
+.no-data {
+  text-align: center;
+  color: #6b7280;
+  font-size: 16px;
 }
 
 @media (max-width: 768px) {
-  .bucket-chart-container {
+  .graph-card-container {
     padding: 20px;
   }
 
-  .bucket-chart-container h3 {
+  .graph-card-title {
     font-size: 18px;
   }
 }

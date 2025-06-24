@@ -27,7 +27,6 @@ const ContestTable = ({ data }) => {
 
   return (
     <div className="contest-table-container">
-      <h3>Contest History</h3>
       <div className="table-wrapper">
         <table className="contest-table">
           <thead>
