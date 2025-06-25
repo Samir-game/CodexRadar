@@ -36,7 +36,9 @@ const Home = () => {
 
   const formatDate = (dateStr) => {
     const date = new Date(dateStr);
-    return date.toLocaleString();
+      return date.toLocaleString('en-IN', {
+        timeZone: 'Asia/Kolkata'
+      });
   };
 
   return (
