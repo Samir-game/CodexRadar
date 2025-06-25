@@ -1,0 +1,92 @@
+# 🚀 CodexRadar
+
+CodexRadar is a full-stack web application that enables college admins and users to manage students and track their Codeforces competitive programming activity. It fetches and analyzes users' contest and problem-solving data in real-time, visualizes performance with interactive charts, and helps monitor user growth and inactivity over time. The platform seamlessly integrates with the official Codeforces API to fetch real-time user data, including submissions and contest ratings.
+
+
+---
+
+## 📌 Key Features
+
+- 🔐 User Authentication with secure HTTP-only cookie-based sessions.
+- 🧑‍🎓 Admin can add students and monitor their Codeforces performance.
+- 📊 Real-time visualizations for:
+  - Problem Solving history (Solved Per Day, Rating Buckets)
+  - Contest History (Contest performance table, Rating graph)
+- 🔄 Automatic Daily Sync using Node-Cron to keep data up-to-date.
+- 📧 Email notifications for:
+  - Upcoming contests (3 hours before)
+  - Inactivity alerts
+- ⚙️ Account Settings page (Logout, Delete account)
+- 📱 Responsive UI optimized for all devices
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React.js (Vite)
+- React Router DOM
+- Axios
+- Recharts (for charts)
+- CSS (responsive, custom design)
+
+### Backend
+- Node.js + Express.js
+- MongoDB + Mongoose
+- JWT (for authentication)
+- Bcrypt.js (for password hashing)
+- Codeforces Official API
+- Node-Cron (scheduled background jobs)
+- Nodemailer (email notifications)
+
+---
+
+## 📂 Folder Structure
+CodexRadar/
+├── client/ # React frontend
+│ ├── pages/ # Home, Login, Signup, etc.
+│ ├── components/ # Navbar, Charts, etc.
+│ └── styles/ # CSS files
+│
+└── server/ # Node.js + Express backend
+├── routes/ # Route handlers
+├── models/ # Mongoose schemas
+├── utils/ # Codeforces API integrations
+├── middlewares/ # Auth and helper logic
+└── cron/ # Scheduled jobs (daily sync + reminders)
+
+
+---
+
+## 🔧 Setup Instructions
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/CodexRadar.git
+cd CodexRadar
+
+cd server
+npm install
+
+PORT=5000
+MONGO_URI=your_mongodb_connection
+JWT_TOKEN_SECRET=your_jwt_secret
+EMAIL_USER=your_email@example.com
+EMAIL_PASS=your_email_password
+
+npm start
+
+cd ../client
+npm install
+
+
+VITE_BASE_URL=backend_url
+VITE_LOGIN_API=backend_url/api/auth/login
+VITE_SIGNUP_API=backend_url/api/auth/signup
+VITE_LOGOUT_API=backend_url/api/auth/logout
+VITE_DELETE_API=backend_url/api/auth/delete
+
+npm run dev
+
+
