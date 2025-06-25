@@ -5,7 +5,7 @@ import Home from "./pages/Home.jsx";
 import Introduction from "./pages/Introduction.jsx";
 import Navbar from "./components/Navbar.jsx";
 import ContestHistory from "./pages/ContestHistory.jsx";
-import ProblemSolvingHistory from "./pages/problemSolvingHistory.jsx";
+import ProblemSolvingHistory from "./pages/ProblemSolvingHistory.jsx";
 import Setting from "./pages/Setting.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
 import ContactUs from "./pages/ContactUs.jsx";
