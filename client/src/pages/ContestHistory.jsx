@@ -31,8 +31,6 @@ const ContestHistory = () => {
         <div className="table-wrapper">
           <ContestTable data={contestData.contestData} />
         </div>
-
-        <h2 className="contesthistory-title">Rating Over Time</h2>
         <div className="graph-wrapper">
           <RatingGraph data={contestData.ratingGraph} />
         </div>
