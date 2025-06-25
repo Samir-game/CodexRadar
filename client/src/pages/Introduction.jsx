@@ -8,7 +8,7 @@ const Introduction = () => {
       <h1 className="intro-title">Welcome to CodexRadar 🚀</h1>
       <p className="intro-description">
         <strong>CodexRadar</strong> is a full-stack competitive programming performance tracking platform. Designed for
-        <strong>Codeforces users</strong>, it automates data sync, visualizes performance,
+        <strong>Codeforces users </strong>, it automates data sync, visualizes performance,
         and sends helpful reminders to keep your competitive edge sharp.
       </p>
 
