@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import SolvedPerDayChart from "../components/SolvedPerDayChart";
 import RatingBucketChart from "../components/RatingBucketChart";
-import "./ProblemSolvingHistory.css";
+import "../styles/ProblemSolvingHistory.css";
 
 const ProblemSolvingHistory = () => {
   const [problemData, setProblemData] = useState(null);

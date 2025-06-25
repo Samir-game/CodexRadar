@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './Setting.css';
+import '../styles/Setting.css';
 
 const Setting = () => {
   const navigate = useNavigate();

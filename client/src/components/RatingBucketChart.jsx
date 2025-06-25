@@ -7,7 +7,7 @@ import {
   ResponsiveContainer,
   CartesianGrid,
 } from "recharts";
-import "./RatingBucketChart.css";
+import "../styles/RatingBucketChart.css";
 
 const RatingBucketChart = ({ data }) => {
   if (!data || Object.keys(data).length === 0) {

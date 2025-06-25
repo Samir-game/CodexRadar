@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ContestTable from "../components/ContestTable";
 import RatingGraph from "../components/RatingGraph";
-import "./ContestHistory.css";
+import "../styles/ContestHistory.css";
 
 const ContestHistory = () => {
   const [contestData, setContestData] = useState(null);

@@ -3,7 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
-import "./SignUp.css";
+import "../styles/SignUp.css";
 
 const SignUp = () => {
   const {

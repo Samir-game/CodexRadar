@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./ContestTable.css";
+import "../styles/ContestTable.css";
 
 const ContestTable = ({ data }) => {
   const [currentPage, setCurrentPage] = useState(1);

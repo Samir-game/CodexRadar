@@ -7,7 +7,7 @@ import {
   ResponsiveContainer,
   CartesianGrid,
 } from "recharts";
-import "./SolvedPerDayChart.css";
+import "../styles/SolvedPerDayChart.css";
 
 const SolvedPerDayChart = ({ data }) => {
   if (!data || Object.keys(data).length === 0) {

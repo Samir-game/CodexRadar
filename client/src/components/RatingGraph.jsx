@@ -8,7 +8,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import "./RatingGraph.css";
+import "../styles/RatingGraph.css";
 
 const RatingGraph = ({ data }) => {
   const formattedData = data
