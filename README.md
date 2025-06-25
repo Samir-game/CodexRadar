@@ -1,6 +1,6 @@
 # 🚀 CodexRadar
 
-CodexRadar is a full-stack web application that enables users to manage students and track their Codeforces competitive programming activity. It periodically fetches and analyzes each user's contest and problem-solving data using scheduled background jobs, visualizes performance with interactive charts, and helps monitor student growth and inactivity over time.
+CodexRadar is a full-stack web application that enables users to manage and track their Codeforces competitive programming activity. It periodically fetches and analyzes each user's contest and problem-solving data using scheduled background jobs, visualizes performance with interactive charts, and helps monitor user's growth and inactivity over time.
 
 The platform seamlessly integrates with the official Codeforces API to fetch detailed user data, including contest ratings, ranks, and submission history.
 
