@@ -41,52 +41,45 @@ CodexRadar is a full-stack web application that enables college admins and users
 
 ---
 
-## 📂 Folder Structure
-CodexRadar/
-├── client/ # React frontend
-│ ├── pages/ # Home, Login, Signup, etc.
-│ ├── components/ # Navbar, Charts, etc.
-│ └── styles/ # CSS files
-│
-└── server/ # Node.js + Express backend
-├── routes/ # Route handlers
-├── models/ # Mongoose schemas
-├── utils/ # Codeforces API integrations
-├── middlewares/ # Auth and helper logic
-└── cron/ # Scheduled jobs (daily sync + reminders)
-
-
----
 
 ## 🔧 Setup Instructions
 
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/your-username/CodexRadar.git
+## 🛠️ Installation & Setup
+### 1️⃣ Clone the Repository
+```sh
+git clone https://github.com/yourusername/CodexRadar.git
 cd CodexRadar
+```
 
+### 2️⃣ Setup Server/Backend
+```sh
 cd server
 npm install
-
+```
+```env
 PORT=5000
 MONGO_URI=your_mongodb_connection
 JWT_TOKEN_SECRET=your_jwt_secret
 EMAIL_USER=your_email@example.com
 EMAIL_PASS=your_email_password
-
+```
+```sh
 npm start
+```
 
+
+### 3️⃣ Setup Client/Frontend
+```sh
 cd ../client
 npm install
-
-
+```
+```env
 VITE_BASE_URL=backend_url
-VITE_LOGIN_API=backend_url/api/auth/login
-VITE_SIGNUP_API=backend_url/api/auth/signup
-VITE_LOGOUT_API=backend_url/api/auth/logout
-VITE_DELETE_API=backend_url/api/auth/delete
-
+VITE_LOGIN_APIbackend_url/api/user/login
+VITE_SIGNUP_API=backend_url/api/user/signup
+VITE_LOGOUT_API=backend_url/api/user/logout
+VITE_DELETE_API=backend_url/api/user/delete
+```
+```sh
 npm run dev
-
-
+```
