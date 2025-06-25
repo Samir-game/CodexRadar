@@ -22,7 +22,7 @@ const Login = () => {
       });
 
       if (response.status !== 200) {
-        toast.error(response?.data?.msg || "Invalid login credentials.");
+        toast.error(response?.data?.message || "Invalid login credentials.");
         return;
       }
 
@@ -31,7 +31,7 @@ const Login = () => {
       reset();
     } catch (error) {
       console.error("Login error:", error);
-      toast.error(error.response?.data?.msg || "Something went wrong.");
+      toast.error(error.response?.data?.message || "Something went wrong.");
     }
   };
 
@@ -40,35 +40,35 @@ const Login = () => {
       <h2 className="login-title">Welcome Back!</h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="login-form">
-        <div className="form-group">
-          <label htmlFor="userEmail" className="form-label">Email:</label>
+        <div className="login-form-group">
+          <label htmlFor="userEmail" className="login-form-label">Email:</label>
           <input
             id="userEmail"
             type="email"
             {...register("userEmail", { required: "Email is required" })}
-            className="form-input"
+            className="login-form-input"
           />
-          {errors.userEmail && <p className="error-text">{errors.userEmail.message}</p>}
+          {errors.userEmail && <p className="login-error-text">{errors.userEmail.message}</p>}
         </div>
 
-        <div className="form-group">
-          <label htmlFor="password" className="form-label">Password:</label>
+        <div className="login-form-group">
+          <label htmlFor="password" className="login-form-label">Password:</label>
           <input
             id="password"
             type="password"
             {...register("userPassword", { required: "Password is required" })}
-            className="form-input"
+            className="login-form-input"
           />
-          {errors.userPassword && <p className="error-text">{errors.userPassword.message}</p>}
+          {errors.userPassword && <p className="login-error-text">{errors.userPassword.message}</p>}
         </div>
 
-        <button type="submit" disabled={isSubmitting} className="login-button">
+        <button type="submit" disabled={isSubmitting} className="login-submit-button">
           {isSubmitting ? "Logging in..." : "Login"}
         </button>
 
-        <p className="signup-link">
+        <p className="login-signup-link">
           Don't have an account?{" "}
-          <Link to="/signup" className="signup-link-anchor">Sign Up</Link>
+          <Link to="/signup" className="login-signup-link-anchor">Sign Up</Link>
         </p>
       </form>
 

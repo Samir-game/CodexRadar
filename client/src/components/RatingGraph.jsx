@@ -16,14 +16,15 @@ const RatingGraph = ({ data }) => {
       ...entry,
       timestamp: new Date(entry.timestamp),
     }))
-    .sort((a, b) => a.timestamp - b.timestamp); // Ensure data is sorted by date
+    .sort((a, b) => a.timestamp - b.timestamp);
 
   if (!formattedData || formattedData.length === 0) {
-    return <p>No rating data to display.</p>;
+    return <p className="rg-no-data">No rating data to display.</p>;
   }
 
   return (
-    <div className="rating-graph-container">
+    <div className="rg-graph-card">
+      <h3 className="rg-graph-title">Rating Over Time</h3>
       <ResponsiveContainer width="100%" height={300}>
         <LineChart data={formattedData}>
           <CartesianGrid strokeDasharray="3 3" />

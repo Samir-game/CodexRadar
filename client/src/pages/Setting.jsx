@@ -34,21 +34,21 @@ const Setting = () => {
   return (
     <div className="setting-container">
       <h2 className="setting-title">Account Settings</h2>
-      
+
       <div className="setting-section">
-        <h3>🔒 Log Out</h3>
-        <p>End your current session and return to the login page.</p>
-        <button className="logout-btn" onClick={handleLogout}>Log Out</button>
+        <h3 className="setting-subheading">🔒 Log Out</h3>
+        <p className="setting-description">End your current session and return to the login page.</p>
+        <button className="setting-logout-btn" onClick={handleLogout}>Log Out</button>
       </div>
 
-      <hr className="divider" />
+      <hr className="setting-divider" />
 
       <div className="setting-section">
-        <h3>⚠️ Delete Account</h3>
-        <p>
+        <h3 className="setting-subheading">⚠️ Delete Account</h3>
+        <p className="setting-description">
           This will <strong>permanently delete</strong> your CodexRadar account, including your Codeforces tracking data. This action cannot be undone.
         </p>
-        <button className="delete-btn" onClick={handleDelete}>Delete My Account</button>
+        <button className="setting-delete-btn" onClick={handleDelete}>Delete My Account</button>
       </div>
     </div>
   );

@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar.jsx";
 import Login from "./pages/Login.jsx";
 import SignUp from "./pages/SignUp.jsx";
 import Home from "./pages/Home.jsx";
 import Introduction from "./pages/Introduction.jsx";
-import Navbar from "./components/Navbar.jsx";
 import ContestHistory from "./pages/ContestHistory.jsx";
 import ProblemSolvingHistory from "./pages/ProblemSolvingHistory.jsx";
 import Setting from "./pages/Setting.jsx";
@@ -24,8 +24,6 @@ function App() {
         />
 
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/nav" element={<Navbar />} />
-
         <Route path="/login" element={<Login />} />
 
         <Route 
@@ -69,7 +67,7 @@ function App() {
         />
 
         <Route 
-          path="/setting" 
+          path="/settings" 
           element={
             <>
               <Navbar />

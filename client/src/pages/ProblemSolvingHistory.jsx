@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import SolvedPerDayChart from "../components/SolvedPerDayChart";
 import RatingBucketChart from "../components/RatingBucketChart";
-import "./ProblemSolvingHistory.css"; 
+import "./ProblemSolvingHistory.css";
 
 const ProblemSolvingHistory = () => {
   const [problemData, setProblemData] = useState(null);
@@ -24,13 +24,13 @@ const ProblemSolvingHistory = () => {
   }, []);
 
   if (!problemData) {
-    return <p className="loading-text">Loading...</p>;
+    return <p className="psh-loading-text">Loading...</p>;
   }
 
   return (
-    <div className="problem-solving-container">
-      <h2>Problem Solving History</h2>
-      <div className="charts-container">
+    <div className="psh-container">
+      <h2 className="psh-title">Problem Solving History</h2>
+      <div className="psh-charts">
         <SolvedPerDayChart data={problemData.solvedPerday} />
         <RatingBucketChart data={problemData.ratingBucket} />
       </div>

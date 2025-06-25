@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ContestTable from "../components/ContestTable";
 import RatingGraph from "../components/RatingGraph";
-import "./ContestHistory.css"; // Optional styling
+import "./ContestHistory.css";
 
 const ContestHistory = () => {
   const [contestData, setContestData] = useState(null);
@@ -13,7 +13,6 @@ const ContestHistory = () => {
         const response = await axios.get(import.meta.env.VITE_HOME_API, {
           withCredentials: true,
         });
-
         setContestData(response.data.userCFInfo.contestHistory);
       } catch (error) {
         console.error("Error fetching contest data:", error.message);
@@ -23,15 +22,21 @@ const ContestHistory = () => {
     fetchContestData();
   }, []);
 
-  if (!contestData) return <p className="loading-text">Loading...</p>;
+  if (!contestData) return <p className="contest-loading-text">Loading...</p>;
 
   return (
-    <div className="contest-history-container">
-      <h2>Contest History</h2>
-      <ContestTable data={contestData.contestData} />
-      <br/>
-      <h2>Rating Over Time</h2>
-      <RatingGraph data={contestData.ratingGraph} />
+    <div className="contesthistory-container">
+      <h2 className="contesthistory-title">Contest History</h2>
+      <div className="contest-history-content">
+        <div className="table-wrapper">
+          <ContestTable data={contestData.contestData} />
+        </div>
+
+        <h2 className="contesthistory-title">Rating Over Time</h2>
+        <div className="graph-wrapper">
+          <RatingGraph data={contestData.ratingGraph} />
+        </div>
+      </div>
     </div>
   );
 };

@@ -11,7 +11,7 @@ import "./RatingBucketChart.css";
 
 const RatingBucketChart = ({ data }) => {
   if (!data || Object.keys(data).length === 0) {
-    return <p className="no-data">No rating bucket data available.</p>;
+    return <p className="rb-no-data">No rating bucket data available.</p>;
   }
 
   const formattedData = Object.entries(data)
@@ -22,8 +22,8 @@ const RatingBucketChart = ({ data }) => {
     .sort((a, b) => parseInt(a.rating) - parseInt(b.rating));
 
   return (
-    <div className="graph-card-container">
-      <h3 className="graph-card-title">Problems Solved by Rating Bucket</h3>
+    <div className="rb-graph-card">
+      <h3 className="rb-graph-title">Problems Solved by Rating Bucket</h3>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={formattedData}>
           <CartesianGrid strokeDasharray="3 3" />

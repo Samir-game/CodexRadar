@@ -1,89 +1,85 @@
-/* Navbar Base */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  background-color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  padding: 14px 20px;
+/* Navigation Container */
+.nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 /* Logo */
-.navbar-logo {
-  font-size: 22px;
+.nav-logo {
+  font-size: 1.5rem;
   font-weight: bold;
   color: #003c80;
 }
 
-/* Nav Links */
-.navbar-links {
+/* Navigation Links */
+.nav-links {
   display: flex;
-  gap: 25px;
   list-style: none;
+  gap: 2rem;
 }
 
-.navbar-links li a {
+.nav-links li a {
   text-decoration: none;
-  color: #374151;
+  color: #333;
   font-weight: 500;
-  transition: color 0.2s;
 }
 
-.navbar-links li a:hover {
-  color: #005cc5;
-}
-
-/* Hamburger Icon */
-.hamburger {
+/* Hamburger Button (Hidden on Desktop) */
+.nav-hamburger {
   display: none;
   flex-direction: column;
-  gap: 5px;
   cursor: pointer;
+  gap: 5px;
 }
 
-.hamburger span {
+.nav-hamburger span {
   width: 25px;
   height: 3px;
-  background-color: #003c80;
-  border-radius: 2px;
+  background-color: #333;
   transition: all 0.3s ease-in-out;
 }
 
-/* Hamburger open animation */
-.hamburger.open span:nth-child(1) {
-  transform: rotate(45deg) translateY(8px);
+/* Open State Hamburger */
+.nav-hamburger-open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
 }
-.hamburger.open span:nth-child(2) {
+.nav-hamburger-open span:nth-child(2) {
   opacity: 0;
 }
-.hamburger.open span:nth-child(3) {
-  transform: rotate(-45deg) translateY(-8px);
+.nav-hamburger-open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Responsive Nav */
+/* Responsive */
 @media (max-width: 768px) {
-  .hamburger {
+  .nav-hamburger {
     display: flex;
   }
 
-  .navbar-links {
+  .nav-links {
     position: absolute;
     top: 60px;
-    left: 0;
     right: 0;
-    background-color: #ffffff;
+    background-color: #fff;
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px 0;
+    align-items: flex-start;
+    width: 100%;
+    padding: 1rem;
+    gap: 1rem;
     display: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
-  .navbar-links.active {
+  .nav-links.nav-links-active {
     display: flex;
   }
 }

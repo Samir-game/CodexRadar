@@ -6,18 +6,24 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="navbar">
-      <div className="navbar-logo">CodexRadar</div>
-      
-      <div className={`hamburger ${isOpen ? 'open' : ''}`} onClick={() => setIsOpen(!isOpen)}>
-        <span></span><span></span><span></span>
+    <nav className="nav-container">
+      <div className="nav-logo">CodexRadar</div>
+
+      <div
+        className={`nav-hamburger ${isOpen ? 'nav-hamburger-open' : ''}`}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
 
-      <ul className={`navbar-links ${isOpen ? 'active' : ''}`}>
+      <ul className={`nav-links ${isOpen ? 'nav-links-active' : ''}`}>
         <li><Link to="/home">Home</Link></li>
-        <li><Link to="/contesthistory">Contest History</Link></li>
-        <li><Link to="/problemhistory">Problem History</Link></li>
-        <li><Link to="/about">About</Link></li>
+        <li><Link to="/contest-history">Contest History</Link></li>
+        <li><Link to="/problem-history">Problem History</Link></li>
+        <li><Link to="/aboutus">About</Link></li>
+        <li><Link to="/contact-us">Contact Us</Link></li>
         <li><Link to="/settings">Settings</Link></li>
       </ul>
     </nav>

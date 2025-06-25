@@ -22,8 +22,6 @@ const Introduction = () => {
         </ul>
       </div>
 
-      
-
       <div className="intro-section">
         <h2 className="intro-subtitle">🔗 Real-Time Codeforces Integration</h2>
         <p className="intro-highlight">
@@ -35,7 +33,7 @@ const Introduction = () => {
       <div className="intro-cta">
         <p>Ready to get started?</p>
         <Link to="/signup" className="intro-button">Create an Account</Link>
-        <span className="or-text">or</span>
+        <span className="intro-or-text">or</span>
         <Link to="/login" className="intro-link">Log In</Link>
       </div>
     </div>

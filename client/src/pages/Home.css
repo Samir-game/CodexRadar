@@ -1,19 +1,19 @@
 .home-container {
-  margin-top: 80px; /* <- Add this line */
-  padding-top: 80px; /* Equal or more than navbar height */
-  min-height: 100vh; /* So content fills full height */
+  margin-top: 100px;
+  padding-top: 80px;
+  min-height: 100vh;
   box-sizing: border-box;
   max-width: 1300px;
-  margin: 100px auto 40px; /* Accounts for fixed navbar */
+  margin: 100px auto 40px;
   padding: 40px 30px;
   background-color: #ffffff;
   border-radius: 16px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-  animation: fadeIn 0.5s ease-in-out;
+  animation: home-fadeIn 0.5s ease-in-out;
 }
 
 /* Profile Header */
-.profile-header {
+.home-profile-header {
   display: flex;
   gap: 30px;
   align-items: center;
@@ -21,7 +21,7 @@
   margin-bottom: 40px;
 }
 
-.profile-photo {
+.home-profile-photo {
   width: 120px;
   height: 120px;
   border-radius: 50%;
@@ -29,26 +29,26 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.profile-info {
+.home-profile-info {
   flex: 1;
   min-width: 240px;
 }
 
-.user-name {
+.home-user-name {
   font-size: 28px;
   color: #003c80;
   font-weight: 700;
   margin-bottom: 6px;
 }
 
-.user-email,
-.last-synced {
+.home-user-email,
+.home-last-synced {
   font-size: 16px;
   color: #374151;
 }
 
-/* Wide Horizontal Stats Layout */
-.stats-grid {
+/* Stats Layout */
+.home-stats-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
@@ -56,8 +56,8 @@
   justify-content: space-between;
 }
 
-.stat-card {
-  flex: 1 1 calc(33% - 16px); /* Each card takes ~33% of row, with spacing */
+.home-stat-card {
+  flex: 1 1 calc(33% - 16px);
   min-width: 260px;
   max-width: 400px;
   background-color: #f9fafb;
@@ -68,23 +68,23 @@
   transition: transform 0.2s ease;
 }
 
-.stat-card:hover {
+.home-stat-card:hover {
   transform: translateY(-4px);
 }
 
-.label {
+.home-label {
   font-size: 15px;
   color: #6b7280;
   margin-bottom: 10px;
 }
 
-.value {
+.home-value {
   font-size: 24px;
   font-weight: 700;
   color: #1f2937;
 }
 
-.loading-text {
+.home-loading-text {
   margin-top: 100px;
   text-align: center;
   font-size: 18px;
@@ -92,7 +92,7 @@
 }
 
 /* Animation */
-@keyframes fadeIn {
+@keyframes home-fadeIn {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -103,30 +103,57 @@
   }
 }
 
-/* Responsive */
+/* Responsive Design */
 @media (max-width: 1024px) {
-  .stat-card {
+  .home-stat-card {
     flex: 1 1 calc(50% - 16px);
-  }
-}
-
-@media (max-width: 600px) {
-  .profile-photo {
-    width: 90px;
-    height: 90px;
-  }
-
-  .user-name {
-    font-size: 24px;
-  }
-
-  .stat-card {
-    flex: 1 1 100%;
   }
 }
 
 @media (max-width: 768px) {
   .home-container {
+    padding: 100px 20px 40px;
+    margin: 100px 10px 40px;
+  }
+
+  .home-profile-photo {
+    width: 90px;
+    height: 90px;
+  }
+
+  .home-user-name {
+    font-size: 24px;
+  }
+
+  .home-stat-card {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-container {
     padding-top: 130px;
+  }
+
+  .home-profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .home-profile-info {
+    width: 100%;
+  }
+
+  .home-user-name {
+    font-size: 22px;
+  }
+
+  .home-user-email,
+  .home-last-synced {
+    font-size: 14px;
+  }
+
+  .home-stat-card {
+    padding: 20px;
   }
 }

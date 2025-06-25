@@ -6,7 +6,7 @@ const userRouter= require("./routes/user.route.js");
 const app=express();
 
 app.use(cors({
-  origin: "https://codexradar.onrender.com",
+  origin: ["https://codexradar.onrender.com","http://localhost:5173"],
   credentials: true,
 }));
 

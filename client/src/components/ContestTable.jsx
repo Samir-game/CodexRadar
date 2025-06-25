@@ -18,17 +18,17 @@ const ContestTable = ({ data }) => {
 
   if (!data || data.length === 0) {
     return (
-      <div className="contest-table-container">
-        <h3>Contest History</h3>
-        <p className="no-data">No contest data available.</p>
+      <div className="ct-container">
+        <h3 className="ct-title">Contest History</h3>
+        <p className="ct-no-data">No contest data available.</p>
       </div>
     );
   }
 
   return (
-    <div className="contest-table-container">
-      <div className="table-wrapper">
-        <table className="contest-table">
+    <div className="ct-container">
+      <div className="ct-table-wrapper">
+        <table className="ct-table">
           <thead>
             <tr>
               <th>Contest ID</th>
@@ -44,7 +44,7 @@ const ContestTable = ({ data }) => {
             {currentContests.map((contest, index) => (
               <tr key={index}>
                 <td>{contest.contestId}</td>
-                <td>{contest.contestName}</td>
+                <td style={{ wordBreak: "break-word", maxWidth: "100px" }}>{contest.contestName}</td>
                 <td>{contest.rank}</td>
                 <td>{contest.oldRating}</td>
                 <td>{contest.newRating}</td>
@@ -63,7 +63,7 @@ const ContestTable = ({ data }) => {
         </table>
       </div>
 
-      <div className="pagination">
+      <div className="ct-pagination">
         <button
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}

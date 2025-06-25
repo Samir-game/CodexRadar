@@ -11,20 +11,19 @@ import "./SolvedPerDayChart.css";
 
 const SolvedPerDayChart = ({ data }) => {
   if (!data || Object.keys(data).length === 0) {
-    return <p className="no-data">No problem solving data available.</p>;
+    return <p className="spdc-no-data">No problem solving data available.</p>;
   }
 
-  // Convert and sort entries by date
   const chartData = Object.entries(data)
     .map(([date, count]) => ({
       date,
       solved: count,
     }))
-    .sort((a, b) => new Date(a.date) - new Date(b.date)); // sort ascending by date
+    .sort((a, b) => new Date(a.date) - new Date(b.date));
 
   return (
-    <div className="solved-chart-container">
-      <h3>Solved Per Day</h3>
+    <div className="spdc-chart-container">
+      <h3 className="spdc-chart-title">Solved Per Day</h3>
       <ResponsiveContainer width="100%" height={300}>
         <LineChart
           data={chartData}
@@ -39,7 +38,7 @@ const SolvedPerDayChart = ({ data }) => {
               new Date(tick).toLocaleDateString("en-IN", {
                 month: "short",
                 day: "numeric",
-                year: "2-digit"
+                year: "2-digit",
               })
             }
           />
@@ -55,7 +54,7 @@ const SolvedPerDayChart = ({ data }) => {
             dataKey="solved"
             stroke="#007bff"
             strokeWidth={2}
-            dot={false} // <-- removed dots
+            dot={false}
           />
         </LineChart>
       </ResponsiveContainer>

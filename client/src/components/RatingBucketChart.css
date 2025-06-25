@@ -1,4 +1,4 @@
-.graph-card-container {
+.rb-graph-card {
   width: 100%;
   padding: 30px 40px;
   background-color: #f3f4f6;
@@ -7,25 +7,25 @@
   box-sizing: border-box;
 }
 
-.graph-card-title {
+.rb-graph-title {
   font-size: 24px;
   margin-bottom: 20px;
   text-align: center;
   color: #003c80;
 }
 
-.no-data {
+.rb-no-data {
   text-align: center;
   color: #6b7280;
   font-size: 16px;
 }
 
 @media (max-width: 768px) {
-  .graph-card-container {
+  .rb-graph-card {
     padding: 20px;
   }
 
-  .graph-card-title {
+  .rb-graph-title {
     font-size: 18px;
   }
 }

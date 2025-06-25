@@ -3,7 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
-import "./SignUp.css"
+import "./SignUp.css";
 
 const SignUp = () => {
   const {
@@ -15,9 +15,9 @@ const SignUp = () => {
 
   const navigate = useNavigate();
 
-  const onSubmit = async(data) => {
+  const onSubmit = async (data) => {
     try {
-      const response= await axios.post(import.meta.env.VITE_SIGNUP_API,data,{
+      const response = await axios.post(import.meta.env.VITE_SIGNUP_API, data, {
         withCredentials: true,
       });
 
@@ -41,62 +41,61 @@ const SignUp = () => {
       <h2 className="signup-title">Create Your CodexRadar Account</h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="signup-form">
-
-        <div className="form-group">
+        <div className="signup-form-group">
           <label htmlFor="name">Name</label>
           <input
             id="name"
             {...register('userName', { required: 'Name is required' })}
-            className="form-input"
+            className="signup-form-input"
           />
-          {errors.userName && <p className="error-text">{errors.userName.message}</p>}
+          {errors.userName && <p className="signup-error-text">{errors.userName.message}</p>}
         </div>
 
-        <div className="form-group">
+        <div className="signup-form-group">
           <label htmlFor="email">Email</label>
           <input
             id="email"
             type="email"
             {...register('userEmail', { required: 'Email is required' })}
-            className="form-input"
+            className="signup-form-input"
           />
-          {errors.userEmail && <p className="error-text">{errors.userEmail.message}</p>}
+          {errors.userEmail && <p className="signup-error-text">{errors.userEmail.message}</p>}
         </div>
 
-        <div className="form-group">
+        <div className="signup-form-group">
           <label htmlFor="codeforces">CodeForces Handle</label>
           <input
             id="codeforces"
             {...register('codeforcesHandle', { required: 'Codeforces Handle is required' })}
-            className="form-input"
+            className="signup-form-input"
           />
-          {errors.codeforcesHandle && <p className="error-text">{errors.codeforcesHandle.message}</p>}
+          {errors.codeforcesHandle && <p className="signup-error-text">{errors.codeforcesHandle.message}</p>}
         </div>
 
-        <div className="form-group">
+        <div className="signup-form-group">
           <label htmlFor="password">Password</label>
           <input
             id="password"
             type="password"
-            {...register('userPassword', { 
+            {...register('userPassword', {
               required: 'Password is required',
               minLength: {
                 value: 6,
                 message: 'Password must be at least 6 characters',
               },
             })}
-            className="form-input"
+            className="signup-form-input"
           />
-          {errors.userPassword && <p className="error-text">{errors.userPassword.message}</p>}
+          {errors.userPassword && <p className="signup-error-text">{errors.userPassword.message}</p>}
         </div>
 
-        <button type="submit" className="submit-button" disabled={isSubmitting}>
+        <button type="submit" className="signup-submit-button" disabled={isSubmitting}>
           {isSubmitting ? 'Signing Up...' : 'Sign Up'}
         </button>
 
-        <p className="login-link">
+        <p className="signup-login-link">
           Already have an account?{' '}
-          <Link to="/login" className="login-link-anchor">
+          <Link to="/login" className="signup-login-link-anchor">
             Login
           </Link>
         </p>

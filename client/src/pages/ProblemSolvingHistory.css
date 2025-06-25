@@ -1,27 +1,32 @@
-.problem-solving-container {
-  margin-top: 80px; /* <- Add this line */
-  padding-top: 80px; /* Equal or more than navbar height */
-  min-height: 100vh; /* So content fills full height */
+.psh-container {
+  margin-top: 80px;
+  padding-top: 80px;
+  min-height: 100vh;
   box-sizing: border-box;
   width: 90vw;
-  margin-top: 80px; /* space for fixed navbar */
   padding: 40px 30px;
   background-color: #ffffff;
-  box-sizing: border-box;
   animation: fadeIn 0.4s ease-in-out;
 }
 
-.problem-solving-container h2 {
+.psh-title {
   font-size: 32px;
   text-align: center;
   color: #003c80;
   margin-bottom: 40px;
 }
 
-.charts-container {
+.psh-charts {
   display: flex;
   flex-direction: column;
   gap: 40px;
+}
+
+.psh-loading-text {
+  margin-top: 100px;
+  text-align: center;
+  font-size: 18px;
+  color: #6b7280;
 }
 
 @keyframes fadeIn {
@@ -36,11 +41,11 @@
 }
 
 @media (max-width: 768px) {
-  .problem-solving-container {
+  .psh-container {
     padding: 20px 15px;
   }
 
-  .problem-solving-container h2 {
+  .psh-title {
     font-size: 24px;
   }
 }

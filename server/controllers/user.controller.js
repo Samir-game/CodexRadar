@@ -33,10 +33,15 @@ const handleSignUp= async (req,res)=>{
         });
 
         const token= generateJWT(newUser);
+        // res.cookie("token", token, {
+        //     httpOnly: true,
+        //     secure: true,              
+        //     sameSite: "None",
+        //     maxAge: 2*24*60*60*1000,
+        // });
         res.cookie("token", token, {
-            httpOnly: true,
-            secure: true,              
-            sameSite: "None",
+            httpOnly: true,             
+            sameSite: "Strict",
             maxAge: 2*24*60*60*1000,
         });
 
@@ -100,10 +105,15 @@ const handleLogin= async(req,res)=>{
         }
 
         const token= generateJWT(user);
+        // res.cookie("token", token, {
+        //     httpOnly: true,
+        //     secure: true,              
+        //     sameSite: "None",
+        //     maxAge: 2*24*60*60*1000,
+        // });
         res.cookie("token", token, {
-            httpOnly: true,
-            secure: true,              
-            sameSite: "None",
+            httpOnly: true,             
+            sameSite: "Strict",
             maxAge: 2*24*60*60*1000,
         });
 
@@ -124,10 +134,14 @@ const handleLogin= async(req,res)=>{
 };
 
 const handleLogout= async(req,res)=>{
+    // res.clearCookie("token", {
+    //     httpOnly: true,
+    //     secure: true,
+    //     sameSite: "None",
+    // });
     res.clearCookie("token", {
         httpOnly: true,
-        secure: true,
-        sameSite: "None",
+        sameSite: "Strict",
     });
 
     return res.status(200).json({
@@ -144,10 +158,14 @@ const handleDeleteUser= async(req,res)=>{
 
         if(deletedUser){
             await Codeforces.findOneAndDelete({user:userId});
+            // res.clearCookie("token", {
+            //     httpOnly: true,
+            //     secure: true,
+            //     sameSite: "None",
+            // });
             res.clearCookie("token", {
                 httpOnly: true,
-                secure: true,
-                sameSite: "None",
+                sameSite: "Strict",
             });
 
             return res.status(200).json({
