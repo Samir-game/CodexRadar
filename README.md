@@ -9,7 +9,6 @@ The platform seamlessly integrates with the official Codeforces API to fetch det
 ## 📌 Key Features
 
 - 🔐 User Authentication with secure HTTP-only cookie-based sessions.
-- 🧑‍🎓 Admin can add students and monitor their Codeforces performance.
 - 📊 Real-time visualizations for:
   - Problem Solving history (Solved Per Day, Rating Buckets)
   - Contest History (Contest performance table, Rating graph)
