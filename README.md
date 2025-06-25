@@ -75,7 +75,7 @@ npm install
 ```
 ```env
 VITE_BASE_URL=backend_url
-VITE_LOGIN_APIbackend_url/api/user/login
+VITE_LOGIN_API=backend_url/api/user/login
 VITE_SIGNUP_API=backend_url/api/user/signup
 VITE_LOGOUT_API=backend_url/api/user/logout
 VITE_DELETE_API=backend_url/api/user/delete
