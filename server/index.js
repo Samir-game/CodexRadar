@@ -33,7 +33,7 @@ connectionDB()
 
     startAgenda() 
     .then(() => 
-        console.log("Agenda started: Contest reminders every 30 mins, inactivity reminders daily at 10 AM."))
+        console.log("Agenda started: Contest reminders,inactivity reminders."))
     .catch((error) => console.error("Agenda start failed:", error.message));
 
 })

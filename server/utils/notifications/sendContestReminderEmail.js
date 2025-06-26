@@ -5,11 +5,11 @@ const sendContestReminderEmail = async (user, contest) => {
 
   const mailOptions = {
     from: `"CodexRadar" <${process.env.EMAIL_USER}>`,
-    to: user.email,
+    to: user.userEmail,
     subject: `Codeforces Contest Reminder: ${contest.name}`,
     html: `
       <div style="font-family: Arial, sans-serif; color: #333;">
-        <h2 style="color: #2c3e50;">👋 Hey ${user.name},</h2>
+        <h2 style="color: #2c3e50;">👋 Hey ${user.userName},</h2>
         <p style="font-size: 16px;">
           It's almost time to put your problem-solving skills to the test! 🚀  
           A new <strong>Codeforces contest</strong> is just around the corner.
@@ -30,7 +30,7 @@ const sendContestReminderEmail = async (user, contest) => {
   };
 
   await transporter.sendMail(mailOptions);
-  console.log(`Sent contest reminder to ${user.email}`);
+  console.log(`Sent contest reminder to ${user.userEmail}`);
 };
 
 module.exports = sendContestReminderEmail;
